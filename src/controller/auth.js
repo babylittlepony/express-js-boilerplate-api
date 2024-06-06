@@ -7,6 +7,13 @@ const authController =
   (res) => {
     const { username, email, password } = req.body;
 
+    if(!req.body){
+        throw console.error("Input the data!");
+    }
+    if () {
+        
+    }
+
     const userRegister = new user({
       username,
       email,
