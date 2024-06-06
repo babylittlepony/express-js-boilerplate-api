@@ -6,5 +6,5 @@ const userSchema = new mongoose.Schema({
   email: String,
 });
 
-user = mongoose.model("User", userSchema);
-module.exports = { user };
+const userModel = mongoose.model("User", userSchema);
+module.exports = { userModel };

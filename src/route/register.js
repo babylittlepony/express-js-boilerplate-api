@@ -7,6 +7,10 @@ const {
 
 const route = express.Router();
 
-route.post("/register", validation, handleValidationAndRegistration);
+const registerRoute = route.post(
+  "/register",
+  validation,
+  handleValidationAndRegistration
+);
 
-module.exports = route;
+module.exports = registerRoute;

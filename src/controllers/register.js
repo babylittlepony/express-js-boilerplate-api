@@ -1,12 +1,12 @@
 const { hash } = require("../helpers/hash");
-const { user } = require("../models/user");
+const { userModel } = require("../models/user");
 
 const registerUser = async (req, res) => {
   const { username, email, password } = req.body;
 
   const hashedPassword = await hash(password);
 
-  const newUser = new user({
+  const newUser = new userModel({
     username,
     email,
     password: hashedPassword,
