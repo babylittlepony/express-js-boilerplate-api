@@ -13,7 +13,7 @@ const handleValidationAndRegistration = async (req, res) => {
   }
 
   try {
-    await registerUser(req, res);
+    registerUser(req, res);
   } catch (error) {
     console.error("Error during registeration", error);
     res.sendStatus(500);
