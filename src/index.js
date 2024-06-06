@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
+const route = require("./route/register");
 require("dotenv").config();
 
 const port = 3000;
@@ -11,6 +12,8 @@ app.use(express.json());
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 });
+
+app.use("/user", route);
 
 async function main() {
   try {
