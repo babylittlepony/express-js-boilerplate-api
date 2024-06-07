@@ -1,4 +1,5 @@
 const comparePasswords = require("../helpers/comparePassword");
+const { generateAccessToken } = require("../helpers/jwt");
 const { userModel } = require("../models/user");
 
 const loginUser = async (req, res, next) => {
@@ -14,6 +15,8 @@ const loginUser = async (req, res, next) => {
     const isPasswordMatch = await comparePasswords(password, user.password);
 
     if (isPasswordMatch) {
+      const token = generateAccessToken(user.username);
+      res.json({ token });
       next();
     } else {
       return res.status(400).json({ message: "Invalid credentials" });
@@ -21,6 +24,7 @@ const loginUser = async (req, res, next) => {
   } catch (error) {
     return res.status(500).json({ message: "Internal server error" });
   }
+
   return res.status(200).json({ message: "Logged in" });
 };
 

@@ -5,9 +5,9 @@ const {
   validation,
 } = require("../middlewares/handleValidationAndRegistration");
 
-const route = express.Router();
+const router = express.Router();
 
-const registerRoute = route.post(
+const registerRoute = router.post(
   "/register",
   validation,
   handleValidationAndRegistration
