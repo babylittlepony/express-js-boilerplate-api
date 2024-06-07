@@ -1,11 +1,9 @@
-const express = require("express");
+const router = require("express").Router();
 
 const {
   handleValidationAndRegistration,
   validation,
 } = require("../middlewares/handleValidationAndRegistration");
-
-const router = express.Router();
 
 const registerRoute = router.post(
   "/register",
