@@ -12,14 +12,9 @@ const registerUser = async (req, res) => {
     password: hashedPassword,
   });
 
-  await newUser
-    .save()
-    .then(() => {
-      console.log("User Saved");
-    })
-    .catch((err) => console.error(err));
+  await newUser.save().catch((err) => console.error(err)); // Save registered user to DB
 
-  res.json({ newUser });
+  res.status(200).json({ message: "User created" });
 };
 
 module.exports = { registerUser };

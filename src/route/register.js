@@ -1,5 +1,6 @@
-const router = require("express").Router();
+/* User registration route */
 
+const router = require("express").Router();
 const {
   handleValidationAndRegistration,
   validation,

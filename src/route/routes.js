@@ -1,3 +1,5 @@
+/* All user route goes here */
+
 const loginRoute = require("./login");
 const registerRoute = require("./register");
 const protectedRoute = require("./protected");

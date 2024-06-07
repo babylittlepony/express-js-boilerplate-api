@@ -1,4 +1,3 @@
-require("dotenv").config();
 const mongoose = require("mongoose");
 
 async function connectToDatabase() {
@@ -11,6 +10,7 @@ async function connectToDatabase() {
   }
 }
 
+/* Event Listener */
 mongoose.connection.on("disconnected", () =>
   console.log("MongoDB disconnected")
 );

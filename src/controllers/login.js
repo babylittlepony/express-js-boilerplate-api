@@ -2,7 +2,7 @@ const comparePasswords = require("../helpers/comparePassword");
 const { generateAccessToken } = require("../helpers/jwt");
 const { userModel } = require("../models/user");
 
-const loginUser = async (req, res, next) => {
+const loginUser = async (req, res) => {
   const { username, password } = req.body;
 
   try {

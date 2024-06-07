@@ -13,13 +13,14 @@ const handleValidationAndRegistration = async (req, res) => {
   }
 
   try {
-    registerUser(req, res);
+    await registerUser(req, res); // User registration process
   } catch (error) {
     console.error("Error during registeration", error);
     res.sendStatus(500);
   }
 };
 
+/* The user rules, You can change this as you like */
 const validation = [
   body("password")
     .isLength(3)
