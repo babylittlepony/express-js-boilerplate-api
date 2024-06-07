@@ -1,27 +1,27 @@
 const comparePasswords = require("../helpers/comparePassword");
 const { userModel } = require("../models/user");
 
-const loginUser = async (req, res) => {
+const loginUser = async (req, res, next) => {
   const { username, password } = req.body;
 
-  let user;
   try {
-    const user = await userModel.findOne({ username, password });
+    const user = await userModel.findOne({ username });
+
+    if (!user) {
+      return res.status(400).json({ message: "Invalid username or password" });
+    }
+
+    const isPasswordMatch = await comparePasswords(password, user.password);
+
+    if (isPasswordMatch) {
+      next();
+    } else {
+      return res.status(400).json({ message: "Invalid credentials" });
+    }
   } catch (error) {
-    return console.error(error);
+    return res.status(500).json({ message: "Internal server error" });
   }
-
-  if (!user) {
-    return res.status(400).json({ message: "Invalid username or password" });
-  }
-
-  const isPasswordMatch = await comparePasswords(password, user.password);
-
-  if (isPasswordMatch) {
-    return res.status(200).json({ message: "Logged in" });
-  } else {
-    res.sendStatus(400);
-  }
+  return res.status(200).json({ message: "Logged in" });
 };
 
 module.exports = { loginUser };

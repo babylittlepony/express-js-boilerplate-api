@@ -12,6 +12,13 @@ const registerUser = async (req, res) => {
     password: hashedPassword,
   });
 
+  await newUser
+    .save()
+    .then(() => {
+      console.log("User Saved");
+    })
+    .catch((err) => console.error(err));
+
   res.json({ newUser });
 };
 
