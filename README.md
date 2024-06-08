@@ -32,10 +32,13 @@ Project Structure
     index.js: Starts the Express server
 
 Usage
+
 This boilerplate provides a sample API endpoint for User Register and Login. You can use tools like Postman to test your API.
 
 Contributing
+
 We welcome contributions! Please refer to the CONTRIBUTING.md file (if you have one) for guidelines.
 
 License
+
 This project is licensed under the MIT License (see LICENSE.md for details).
