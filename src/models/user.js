@@ -1,3 +1,5 @@
+/* Change the model as you like */
+
 const mongoose = require("mongoose");
 
 const userSchema = new mongoose.Schema({
